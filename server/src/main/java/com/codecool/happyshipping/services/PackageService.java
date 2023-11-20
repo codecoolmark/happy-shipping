@@ -15,7 +15,7 @@ public class PackageService {
         this.packageRepository = packageRepository;
     }
 
-    public Collection<Package> getPackageNames() {
+    public Collection<Package> getPackages() {
         return this.packageRepository.findAll();
     }
 

@@ -18,7 +18,7 @@ public class Packages {
 
     @GetMapping
     public Collection<Package> getPackages() {
-        return this.packageService.getPackageNames();
+        return this.packageService.getPackages();
     }
 
     @PostMapping
