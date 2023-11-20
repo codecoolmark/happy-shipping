@@ -18,4 +18,8 @@ public class PackageService {
     public Collection<Package> getPackageNames() {
         return this.packageRepository.findAll();
     }
+
+    public Package addPackage(Package newPackage) {
+        return this.packageRepository.save(newPackage);
+    }
 }

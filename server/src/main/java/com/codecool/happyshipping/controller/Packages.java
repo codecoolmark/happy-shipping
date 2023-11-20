@@ -2,9 +2,7 @@ package com.codecool.happyshipping.controller;
 
 import com.codecool.happyshipping.model.Package;
 import com.codecool.happyshipping.services.PackageService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -21,5 +19,10 @@ public class Packages {
     @GetMapping
     public Collection<Package> getPackages() {
         return this.packageService.getPackageNames();
+    }
+
+    @PostMapping
+    public Package postPackages(@RequestBody Package newPackage) {
+        return this.packageService.addPackage(newPackage);
     }
 }
