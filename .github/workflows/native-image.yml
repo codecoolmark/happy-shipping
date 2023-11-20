@@ -47,8 +47,19 @@ jobs:
       with:
         directory: server
 
+    - name: Log in to the Container registry
+      uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }} 
+
     - name: Built native image
       working-directory: server
       run: ./mvnw spring-boot:build-image -Pnative
+        -Dspring-boot.build-image.imageName='${{ env.REGISTRY }}/${{ github.actor }}/${project.artifactId}-native:latest'
     
+    - name: Push image
+      run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/happy-shipping-native:latest
 
+    
