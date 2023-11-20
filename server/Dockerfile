@@ -1,4 +1,4 @@
-FROM eclipse-temurin:19-jdk-alpine
+FROM eclipse-temurin:19-jre-alpine
 VOLUME /tmp
 ARG JAR_FILE
 COPY target/*.jar app.jar
