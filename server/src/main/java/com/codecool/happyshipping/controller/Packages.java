@@ -1,5 +1,6 @@
 package com.codecool.happyshipping.controller;
 
+import com.codecool.happyshipping.services.PackageService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +12,14 @@ import java.util.List;
 @RequestMapping("packages")
 public class Packages {
 
+    private final PackageService packageService;
+
+    public Packages(PackageService packageService) {
+        this.packageService = packageService;
+    }
+
     @GetMapping
     public Collection<String> getPackages() {
-        return List.of("First package", "Second Package");
+        return this.packageService.getPackageNames();
     }
 }
