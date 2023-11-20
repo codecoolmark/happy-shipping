@@ -1,13 +1,21 @@
 package com.codecool.happyshipping.services;
 
+import com.codecool.happyshipping.model.Package;
+import com.codecool.happyshipping.repository.PackageRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 
 @Service
 public class PackageService {
-    public Collection<String> getPackageNames() {
-        return List.of("first package", "second package");
+
+    private final PackageRepository packageRepository;
+
+    public PackageService(PackageRepository packageRepository) {
+        this.packageRepository = packageRepository;
+    }
+
+    public Collection<Package> getPackageNames() {
+        return this.packageRepository.findAll();
     }
 }
