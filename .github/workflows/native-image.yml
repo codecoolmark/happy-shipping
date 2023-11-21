@@ -10,7 +10,7 @@ name: native-image
 
 on:
   push:
-    branches: [ "main", "feature/native-image" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -57,9 +57,9 @@ jobs:
     - name: Built native image
       working-directory: server
       run: ./mvnw spring-boot:build-image -Pnative
-        -Dspring-boot.build-image.imageName='${{ env.REGISTRY }}/${{ github.actor }}/${project.artifactId}-native:latest'
+        -Dspring-boot.build-image.imageName='${{ env.REGISTRY }}/${{ github.actor }}/happy-shipping-server-native:latest'
     
     - name: Push image
-      run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/happy-shipping-native:latest
+      run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/happy-shipping-server-native:latest
 
     
