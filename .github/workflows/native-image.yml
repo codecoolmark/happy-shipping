@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: native-image
+name: build and publish native image
 
 on:
   push:
