@@ -54,7 +54,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+						<builder>paketobuildpacks/builder-jammy-tiny</builder>
+						<env>
+							<BP_JVM_VERSION>21.0.0</BP_JVM_VERSION>
+						</env>
 					</image>
 				</configuration>
 			</plugin>
